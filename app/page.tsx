@@ -5,7 +5,7 @@ const Page: React.FC = () => {
   const [code, setCode] = useState<string>('');
   const [output, setOutput] = useState<string>('');
 
-  const interpretVarnika = useCallback((code: string): string => {
+  const interpretVarnaka = useCallback((code: string): string => {
     let outputBuffer = '';
     const customConsole = {
       log: (...args: unknown[]) => {
@@ -34,28 +34,28 @@ const Page: React.FC = () => {
   }, []);
 
   const handleRunCode = useCallback(() => {
-    const result = interpretVarnika(code);
+    const result = interpretVarnaka(code);
     setOutput(result);
-  }, [code, interpretVarnika]);
+  }, [code, interpretVarnaka]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-500 to-yellow-400 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto bg-white shadow-2xl rounded-2xl overflow-hidden">
         <div className="bg-red-600 py-8">
-          <h1 className="text-4xl font-extrabold text-center text-yellow-300">Varnika Interpreter</h1>
+          <h1 className="text-4xl font-extrabold text-center text-yellow-300">Varnaka Interpreter</h1>
         </div>
 
         <div className="p-8 space-y-8">
           <div>
             <label className="block text-xl font-medium text-gray-800 mb-3" htmlFor="codeInput">
-              Enter Varnika Code:
+              Enter Varnaka Code:
             </label>
             <textarea
               id="codeInput"
               className="w-full h-56 p-4 border-2 border-yellow-400 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition duration-200 ease-in-out text-lg"
               value={code}
               onChange={(e) => setCode(e.target.value)}
-              placeholder="Type your Varnika code here..."
+              placeholder="Type your Varnaka code here..."
               spellCheck="false"
             />
           </div>
