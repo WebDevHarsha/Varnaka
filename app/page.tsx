@@ -1,20 +1,20 @@
 "use client";
 import React, { useState } from 'react';
 
-const Page = () => {
+const page = () => {
   const [code, setCode] = useState('');
   const [output, setOutput] = useState('');
 
   const interpretVarnikaType = (code: string): string => {
     let outputBuffer = '';
     const customConsole = {
-      log: (...args: any[]) => {
+      log: (...args: unknown[]) => { // Use 'unknown' instead of 'any'
         outputBuffer += args.join(' ') + '\n';
       }
     };
 
     try {
-      let jsCode = code
+      const jsCode = code // Use 'const' instead of 'let'
         .replace(/mudrisu/g, 'customConsole.log')
         .replace(/agoVarigu/g, 'while')
         .replace(/salluvagi/g, 'for')
@@ -27,7 +27,7 @@ const Page = () => {
 
       new Function('customConsole', jsCode)(customConsole);
       return outputBuffer || 'No output';
-    } catch (error) {
+    } catch {
       return 'goobe,naayi kann thegadhu code madu';
     }
   };
@@ -61,4 +61,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default page;
