@@ -39,20 +39,20 @@ const Page: React.FC = () => {
   }, [code, interpretVarnika]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-100 to-white py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mx-auto bg-white shadow-2xl rounded-lg overflow-hidden">
-        <div className="bg-blue-600 py-6">
-          <h1 className="text-3xl font-extrabold text-center text-white">Varnika Interpreter</h1>
+    <div className="min-h-screen bg-gradient-to-br from-red-500 to-yellow-400 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto bg-white shadow-2xl rounded-2xl overflow-hidden">
+        <div className="bg-red-600 py-8">
+          <h1 className="text-4xl font-extrabold text-center text-yellow-300">Varnika Interpreter</h1>
         </div>
 
-        <div className="p-6 space-y-6">
+        <div className="p-8 space-y-8">
           <div>
-            <label className="block text-lg font-medium text-gray-700 mb-2" htmlFor="codeInput">
+            <label className="block text-xl font-medium text-gray-800 mb-3" htmlFor="codeInput">
               Enter Varnika Code:
             </label>
             <textarea
               id="codeInput"
-              className="w-full h-48 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+              className="w-full h-56 p-4 border-2 border-yellow-400 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition duration-200 ease-in-out text-lg"
               value={code}
               onChange={(e) => setCode(e.target.value)}
               placeholder="Type your Varnika code here..."
@@ -61,16 +61,16 @@ const Page: React.FC = () => {
           </div>
 
           <button
-            className="w-full px-4 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150 ease-in-out"
+            className="w-full px-6 py-3 bg-red-600 text-yellow-300 text-xl font-bold rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition duration-200 ease-in-out transform hover:scale-105"
             onClick={handleRunCode}
           >
             Run Code
           </button>
 
           <div>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-2">Output:</h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-3">Output:</h2>
             <pre
-              className="p-4 bg-gray-50 border border-gray-200 rounded-md whitespace-pre-wrap overflow-auto max-h-48"
+              className="p-5 bg-gray-100 border-2 border-yellow-400 rounded-lg whitespace-pre-wrap overflow-auto max-h-56 text-lg"
               id="outputBlock"
             >
               {output}
@@ -78,8 +78,8 @@ const Page: React.FC = () => {
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-2">Syntax Examples:</h2>
-            <ul className="space-y-2 text-gray-700">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">Syntax Examples:</h2>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
                 { keyword: 'mudrisu', description: 'Print to the console', example: 'mudrisu("Hello, world!")' },
                 { keyword: 'idu', description: 'Declare a variable', example: 'idu x = 10' },
@@ -89,9 +89,10 @@ const Page: React.FC = () => {
                 { keyword: 'salluvagi', description: 'For loop', example: 'salluvagi (i = 0; i < 10; i = i + 1)' },
                 { keyword: 'agoVarigu', description: 'While loop', example: 'agoVarigu (x < 10)' },
               ].map(({ keyword, description, example }) => (
-                <li key={keyword} className="bg-gray-50 rounded-md p-3 shadow-sm">
-                  <span className="font-bold text-blue-600">{keyword}</span> - {description}<br />
-                  <code className="bg-gray-200 px-2 py-1 rounded text-sm">{example}</code>
+                <li key={keyword} className="bg-yellow-100 rounded-lg p-4 shadow-md hover:shadow-lg transition duration-200 ease-in-out">
+                  <span className="font-bold text-red-600 text-lg">{keyword}</span>
+                  <p className="text-gray-700 mb-2">{description}</p>
+                  <code className="bg-white px-2 py-1 rounded text-sm border border-yellow-400">{example}</code>
                 </li>
               ))}
             </ul>
