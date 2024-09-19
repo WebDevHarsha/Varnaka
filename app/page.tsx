@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 
-const page = () => {
+const Page = () => { // Renamed 'page' to 'Page'
   const [code, setCode] = useState('');
   const [output, setOutput] = useState('');
 
@@ -61,4 +61,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page; // Export 'Page'
